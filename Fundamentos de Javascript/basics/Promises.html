@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
+    </script>
+    <script>
+        const API_URL = 'https://swapi.dev/api/';
+        const LUKE_URL = 'people/:id';
+        const opts = {crossDomain : true}
+
+        const getCharacter = (id) =>{
+            return new Promise((resolve,reject)=>{
+                const url = `${API_URL}${LUKE_URL.replace(':id',id)}`
+                $.get(url,opts,function(data){
+                    
+                    resolve(data)
+                }).fail(()=>{ 
+                    console.log('Error en el Jquery')
+                    reject(id)
+                })
+            });   
+        };
+
+        function onError(id){
+            console.log(`Sucedió un error al obtener el personaje ${id}`)
+        }
+
+        async function getCharacters(){
+        var ids = [1,2,3,4,5,6,7]
+        var promises = ids.map((id)=> (getCharacter(id)))
+        try {
+            var characters = await Promise.all(promises)
+            console.log(characters)
+        } catch (error) {
+            onError(error)
+        }
+        
+        }
+
+        getCharacters()
+
+   
+
+      
+            /* getCharacter(1).then(function(data){
+            console.log(`El personaje es ${data.name}`)
+            return getCharacter(2)
+            }).then(function(data){
+            console.log(`El personaje es ${data.name}`)
+            return getCharacter(3)
+            })
+            .then(function(data){
+            console.log(`El personaje es ${data.name}`)
+            return getCharacter(4)
+            })
+            .then(function(data){
+            console.log(`El personaje es ${data.name}`)
+            return getCharacter(5)
+            })
+            .then(function(data){
+            console.log(`El personaje es ${data.name}`)
+            }).catch(function(id){
+            console.log('There was an error on returning character'+id);
+            }) */
+           
+        
+        
+
+
+    </script>
+
+
+<!--
+ <script>
+        const API_URL = 'http://swapi.dev/api/';
+        const PEOPLE_URL = 'people/:id'
+        var characters = []
+
+        for(var i = 1; i<=10; i++)
+        {
+            $.get(API_URL+PEOPLE_URL.replace(':id',i),{ crossDomain : true},function(character){
+                characters.push(character)
+            });
+        }
+
+        var x = []
+       
+        setTimeout(()=>{
+            characters.forEach(function(item){
+                console.log(item.name);
+            });
+        },399)
+        
+        
+        
+    </script>
+-->
+   
+</body>
+</html>
