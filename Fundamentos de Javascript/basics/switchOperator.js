@@ -25,3 +25,4 @@ switch(sign){
         console.error(`We haven't found your sign`)
     break
 }
+

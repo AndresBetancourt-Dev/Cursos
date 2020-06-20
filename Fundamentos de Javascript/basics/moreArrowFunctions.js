@@ -25,16 +25,7 @@ const addWeight = person => {
 }
 const loseWeight = person => person.weight -= EXERCISE
 
-// for (var i = 1; i<=NUMBER_OF_DAYS_PER_YEAR;i++){
-//     var random = Math.random()
-//     if(random < 0.25){
-//         addWeight(andres)
-//         console.log('Gain')
-//     }else if(random < 0.5) {
-//         loseWeight(andres)
-//         console.log('Lost')
-//     }   
-// }
+
 
 
 const GOAL = (andres.weight - 3);
