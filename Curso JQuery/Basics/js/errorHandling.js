@@ -1,0 +1,1 @@
+alert('I have succesfully entered to this file')
