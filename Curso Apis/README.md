@@ -33,3 +33,6 @@ DELETE /books/50
 Cuando conviene REST?
 Interacciones simples
 Recursos limitados
+
+
+ Curl es un proyecto de software consistente en una biblioteca (libcurl) y un intérprete de comandos (curl) orientado a la transferencia de archivos
