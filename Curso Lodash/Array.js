@@ -78,3 +78,34 @@ console.log(users[_.findIndex(users, (e) => e.user === "barney")]);
 
   console.log(_.flattenDepth(thearray, 2));
 }
+
+{
+  const asyncSave = async ({ type, complete }) => {
+    await console.log(type, complete);
+  };
+
+  var saves = ["profile", "settings"];
+
+  var done = _.after(saves.length, function () {
+    console.log("done saving!");
+  });
+
+  _.forEach(saves, function (type) {
+    asyncSave({ type: type, complete: done });
+  });
+}
+
+function greet(greeting, punctuation) {
+  return greeting + " " + this.user + punctuation;
+}
+
+var object = { user: "fred" };
+
+var bound = _.bind(greet, object, "hi");
+bound("!");
+// => 'hi fred!'
+
+// Bound with placeholders.
+var bound = _.bind(greet, object, _, "!");
+bound("hi");
+// => 'hi fred!'
