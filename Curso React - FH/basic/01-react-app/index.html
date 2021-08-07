@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- React JS -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Application from Scratch</title>
+</head>
+<body>
+    <main id="main"></main>
+
+
+    <script type="text/babel">
+
+
+        const main = document.querySelector('#main');
+
+        const text = "React desde cero";
+        const Title = <h1>Repasando React con FH - {text}</h1>;
+
+        console.log(Title); //Component
+        console.log(Title.$$typeof); //React.Element
+        console.log(Title.type); //Etiqueta
+
+        Object.entries(Title).forEach(([key,value])=>{
+            console.log("La llave es : "+key);
+            console.log("El valor es : ",(value));
+        })
+
+        //Uso de Fragment Implícito gracias a Babel
+        const FragmentComponent = 
+            <>
+            {Title}
+            </>;
+        
+
+        ReactDOM.render(FragmentComponent,main)
+        
+    </script>
+</body>
+</html>
