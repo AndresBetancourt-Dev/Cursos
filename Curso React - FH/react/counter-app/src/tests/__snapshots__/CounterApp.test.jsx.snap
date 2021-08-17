@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the Counter App Match Snapshot 1`] = `
+<Fragment>
+  <h1>
+    CounterApp
+  </h1>
+  <h2>
+    0
+  </h2>
+  <h3>
+    0
+  </h3>
+  <button
+    className="button counter"
+    onClick={[Function]}
+  >
+    +1
+  </button>
+  <button
+    className="button counter"
+    onClick={[Function]}
+  >
+    Reset
+  </button>
+  <button
+    className="button counter"
+    onClick={[Function]}
+  >
+    -1
+  </button>
+</Fragment>
+`;
