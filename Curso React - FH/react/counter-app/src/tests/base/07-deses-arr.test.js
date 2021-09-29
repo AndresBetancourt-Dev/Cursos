@@ -8,7 +8,10 @@ describe("Tests in retornoArreglo", () => {
 
     expect(typeof letters).toBe("string");
     expect(typeof numbers).toBe("number");
-
+    expect(letters).toEqual("ABC");
+    expect(letters).toBe("ABC");
+    expect(numbers).toBeCloseTo(122.95, 1);
+    expect(numbers).not.toBe("123");
     expect(typeof letters).toEqual("string");
     expect(typeof numbers).toEqual("number");
 

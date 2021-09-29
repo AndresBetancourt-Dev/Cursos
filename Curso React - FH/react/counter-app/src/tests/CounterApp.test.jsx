@@ -23,6 +23,7 @@ describe("Test for the Counter App", () => {
     const renderValue = Component.find("h2").text().trim();
 
     expect(renderValue).toBe(value.toString());
+    expect(renderValue).not.toBe("101");
   });
 
   test("Add Button Click Test", () => {
@@ -51,10 +52,15 @@ describe("Test for the Counter App", () => {
     Component.find("button").at(0).simulate("click");
     Component.find("button").at(0).simulate("click");
 
+    let renderValue = Component.find("h3").text().trim();
+
+    expect(renderValue).toBe("10");
+
     Component.find("button").at(1).simulate("click");
 
-    const renderValue = Component.find("h3").text().trim();
+    renderValue = Component.find("h3").text().trim();
 
     expect(renderValue).toBe(value.toString());
+    expect(renderValue).not.toBe("10");
   });
 });
