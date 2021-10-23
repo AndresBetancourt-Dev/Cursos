@@ -2,7 +2,9 @@
 
 exports[`React App Component tests title prop 1`] = `
 <Fragment>
-  <h1 />
+  <h1>
+    React the best
+  </h1>
   <h2>
     I will be the best programmer
   </h2>
@@ -17,6 +19,7 @@ exports[`React App Component tests title prop 1`] = `
     "sideText": "Wil be forever",
     "elementBackground": "image",
     "enabled": false,
+    "React": "React the best",
     "Java": "Will course the spring boot course",
     "Redux": "",
     "SpringBoot": "Need to learn Springboot, ASAP"

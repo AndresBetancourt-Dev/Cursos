@@ -7,6 +7,7 @@ describe("Giphy API Tests", () => {
 
     expect(typeof url).toBe("string");
     expect(url.includes("https")).toBeTruthy();
+    console.log(url);
     expect(url).toMatch(/https:\/\/media[0-9].giphy.com\/media\//);
   });
 });

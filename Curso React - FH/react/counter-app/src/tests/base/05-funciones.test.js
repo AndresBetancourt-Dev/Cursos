@@ -12,7 +12,7 @@ describe("Tests in 05-funciones.js", () => {
     expect(user).toStrictEqual(USER);
   });
   test("Test in getUsuarioActivo", () => {
-    const name = "Andrés";
+    const name = "Pepe";
     const user = getUsuarioActivo(name);
     expect(user).toStrictEqual({ uid: "ABC567", username: name });
   });
