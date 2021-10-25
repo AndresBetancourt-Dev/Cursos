@@ -27,5 +27,5 @@ interface Person{
 }
 
 export function getName(user : Person){
-    return `${user?.first ?? "Andrés"} ${user?.last ?? "Betancourt"}`;
+    return `${user?.first ?? "First"} ${user?.last ?? "Last"}`;
 }
