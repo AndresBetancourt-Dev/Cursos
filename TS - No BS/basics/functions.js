@@ -27,6 +27,6 @@ var introduce = function (salutation) {
 exports.introduce = introduce;
 function getName(user) {
     var _a, _b;
-    return ((_a = user === null || user === void 0 ? void 0 : user.first) !== null && _a !== void 0 ? _a : "Andrés") + " " + ((_b = user === null || user === void 0 ? void 0 : user.last) !== null && _b !== void 0 ? _b : "Betancourt");
+    return ((_a = user === null || user === void 0 ? void 0 : user.first) !== null && _a !== void 0 ? _a : "First") + " " + ((_b = user === null || user === void 0 ? void 0 : user.last) !== null && _b !== void 0 ? _b : "Last");
 }
 exports.getName = getName;
