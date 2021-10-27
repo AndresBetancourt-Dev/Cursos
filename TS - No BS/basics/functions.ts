@@ -26,6 +26,6 @@ interface Person{
     last : string
 }
 
-export function getName(user : Person){
+export function getName(user : Person) : string{
     return `${user?.first ?? "First"} ${user?.last ?? "Last"}`;
 }
