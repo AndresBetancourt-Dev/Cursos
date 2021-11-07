@@ -87,6 +87,7 @@ PersonProxy.email = "Something Wrong"; //Doesn't match RegEx Pattern
 PersonProxy.anyProperty = "This will throw error!"; //Property not defined in optional Properties
 PersonProxy.age = "15"; //Type of is not a number
 PersonProxy.age = -7; //Value is negative
+PersonProxy.age = -21;
 
 /* Both Objects share the same state */
 console.log(Person);
