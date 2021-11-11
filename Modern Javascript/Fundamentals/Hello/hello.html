@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Before the script...</p>
+
+    <!--
+        Modern markup
+        The <script> tag has a few attributes that are rarely used nowadays but can still be found in old code:
+
+        The type attribute: <script type=…>
+        The old HTML standard, HTML4, required a script to have a type. Usually it was type="text/javascript". It’s not required anymore. Also, the modern HTML standard totally changed the meaning of this attribute. Now, it can be used for JavaScript modules. But that’s an advanced topic, we’ll talk about modules in another part of the tutorial.
+
+        The language attribute: <script language=…>
+        This attribute was meant to show the language of the script. This attribute no longer makes sense because JavaScript is the default language. There is no need to use it.
+    -->
+    <textarea contenteditable="true"> </textarea>
+    <p id="content"></p>
+    <script type="text/javascript" language="javascript">
+      alert("Hello, world!");
+    </script>
+    <script
+      src="index.js"
+      type="text/javascript"
+      language="javascript"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+
+    <script>
+      document.querySelector("p#content").innerHTML = _.chunk(
+        [1, 2, 3, 4, 5, 7, 8, 5, 6, 9, 2, 74, 1, 4, 5],
+        5
+      ).map((chunk) => "<p>" + chunk + "</p>");
+    </script>
+    <p>...After the script.</p>
+
+    <!--
+        If src is set, the script content is ignored.
+        A single <script> tag can’t have both the src attribute and code inside. 
+          
+        Summary
+        We can use a <script> tag to add JavaScript code to a page.
+        The type and language attributes are not required.
+        A script in an external file can be inserted with <script src="path/to/script.js"></script>.
+    -->
+
+    <!-- 
+    Create a page that shows a message “I’m JavaScript!”.
+
+    Do it in a sandbox, or on your hard drive, doesn’t matter, just ensure that it works.
+    -->
+    <script>
+      alert("I'm JavaScript!");
+    </script>
+
+    <!-- 
+    
+    -->
+    <script src="alert.js"></script>
+  </body>
+</html>
