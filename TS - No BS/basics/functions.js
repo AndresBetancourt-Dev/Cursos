@@ -12,9 +12,13 @@ var addStrings = function (stringOne, stringTwo) {
 exports.addStrings = addStrings;
 //Union type in typescript | not || or
 //Any of the types that qualify are ok for enter into these particular parameter
-var format = function (title, parameter) { return title + " " + parameter; };
+var format = function (title, parameter) {
+    return title + " " + parameter;
+};
 exports.format = format;
-var printFormat = function (title, parameter) { return console.log((0, exports.format)(title, parameter)); };
+var printFormat = function (title, parameter) {
+    return console.log((0, exports.format)(title, parameter));
+};
 exports.printFormat = printFormat;
 //export const fetchData = (url : string) : Promise<string> =>  Promise.resolve(`Data from ${url}`);
 var introduce = function (salutation) {
