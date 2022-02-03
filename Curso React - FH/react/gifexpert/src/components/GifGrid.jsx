@@ -1,23 +1,19 @@
 import React from "react";
+import GifGridItem from "../components/GifGridItem";
+import { useFetchGifs } from "../hooks/useFetchGifs";
 
 const GifGrid = ({ category }) => {
-  const getGifs = async (search) => {
-    const url = `https://api.giphy.com/v1/gifs/search?q=${search}&limit=10&api_key=sVZLHeSkpHjZRYJMAdN633lpxCjAADDN`;
-    const response = await fetch(url);
-    const { data } = await response.json();
-    const images = await data.map((image) => ({
-      id: image.id,
-      title: image.title,
-      url: image.images.original.url,
-    }));
-    console.log(images);
-  };
-
-  getGifs("One Punch Man");
+  const { data: images, loading } = useFetchGifs(category);
 
   return (
-    <div>
+    <div className="grid animate__animated animate__fadeIn">
       <h3>{category}</h3>
+      {loading && "Cargando..."}
+      <div className="card-grid ">
+        {images.map(({ id, ...image }) => (
+          <GifGridItem key={id} {...image} />
+        ))}
+      </div>
     </div>
   );
 };
