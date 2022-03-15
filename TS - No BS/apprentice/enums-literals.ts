@@ -42,11 +42,11 @@ function rollDice(dice: 1 | 2 | 3): number {
 //Good Literal
 console.log(rollDice(1));
 
-function sendEvent(name: "checkout", data: { cartCount: number }): void;
-function sendEvent(name: "addToCart", data: { productId: number }): void;
-function sendEvent(name: string, data: unknown): void {
+function ecommerce(name: "checkout", data: { cartCount: number }): void;
+function ecommerce(name: "addToCart", data: { productId: number }): void;
+function ecommerce(name: string, data: unknown): void {
   console.log(`${name}  : ${JSON.stringify(data)}`);
 }
 
-sendEvent("checkout", { cartCount: 1 });
-sendEvent("addToCart", { productId: 5 });
+ecommerce("checkout", { cartCount: 1 });
+ecommerce("addToCart", { productId: 5 });

@@ -38,6 +38,9 @@ type Animals = Array<Animal>;
 type VoidFunction = () => void;
 type MutationFunction = (n: number) => number;
 
+const persons: Persons = [];
+const animals: Animals = [];
+
 export function printToFile(text: string, callback: VoidFunction): void {
   console.log(text);
   callback();
@@ -45,7 +48,6 @@ export function printToFile(text: string, callback: VoidFunction): void {
 
 export const printCallbackText: VoidFunction = () =>
   console.log("This text also will be printed");
-
 console.log("This text will be printed", printCallbackText);
 
 export function arrayMutate(
