@@ -34,6 +34,8 @@ const CounterApp = ({ value }) => {
   );
 };
 
+var dato = "Dato";
+
 CounterApp.propTypes = {
   value: PropTypes.number.isRequired,
 };

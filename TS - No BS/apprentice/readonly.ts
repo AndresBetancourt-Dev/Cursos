@@ -8,7 +8,7 @@ interface CatReadOnly {
   readonly breed: string;
 }
 
-type ReadOnlyCat = Readonly<Cat>;
+type ReadOnlyCat = Readonly<Cat>; //Utility Type to create ReadOnly Object/interface
 
 function makeCat(name: string, breed: string): ReadOnlyCat {
   return {
@@ -25,6 +25,8 @@ const michi: CatReadOnly = {
   name: "x",
   breed: "Pelao",
 };
+//  Cannot assign to 'name' because it is a read-only property.
+//michi.name = "a";
 
 function makeCoordinate(
   x: number,
