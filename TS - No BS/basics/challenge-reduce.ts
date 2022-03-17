@@ -20,6 +20,9 @@ function filterFunction<T>(items: T[], filterFunc: (item: T) => boolean): T[] {
 }
 
 console.log(
+  filterFunction(["s", "s", "s", "", "", ""], (item) => !item.split("").length)
+);
+console.log(
   filterFunction([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item) => item % 2 === 0)
 );
 

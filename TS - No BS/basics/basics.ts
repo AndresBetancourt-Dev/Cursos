@@ -110,6 +110,7 @@ console.log(recordsObjects);
  * boolean
  * any
  * object
+ * unknown
  *
  * Object Types
  *
