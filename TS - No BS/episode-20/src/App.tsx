@@ -5,13 +5,14 @@ import { Heading } from './components/Heading';
 import { Incrementer } from './components/Incrementer';
 import { List } from './components/List';
 import Todo from './components/Todo';
+import { useNumber } from './hooks/useNumber';
 interface Payload {
   text: string
 }
 
 function App() {
   const [payload, setPayload] = useState<Payload | null>(null);
-  const [value, setValue] = useState<number>(0)
+  const [value, setValue] = useNumber(0)
 
   useEffect(() => {
     fetch('/data.json').then((response) => response.json()).then(data => setPayload(data))

@@ -1,10 +1,11 @@
 import { FunctionComponent, Dispatch, SetStateAction } from "react";
+import Button from "../Button";
 
 export const Incrementer: FunctionComponent<{
   value: number;
   setValue: Dispatch<SetStateAction<number>>;
 }> = ({ value, setValue }) => (
   <>
-    <button onClick={() => setValue(value + 1)}>Value - {value}</button>
+    <Button onClick={() => setValue(value + 1)} title={`Value from title - ${value}`}>Value - {value}</Button>
   </>
 );
