@@ -1,20 +1,24 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useReducer, useRef } from 'react'
 import { Heading } from '../Heading';
 import AddTodo from './AddTodo';
-import { TodoType } from './types';
+import { ActionType, TodoType } from './types';
 import styles from "./styles.module.css";
 import UL from '../UL';
-import useTodos from '../../hooks/useTodos';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { selectTodos } from '../../redux/store';
+import { addTodo, removeTodo } from '../../redux/slices';
 
 const Todo = () => {
-    const { todos, addTodo, removeTodo } = useTodos(state => state);
+    const todos = useSelector(selectTodos);
+    const dispatch = useDispatch();
 
     const textRef = useRef<HTMLInputElement>(null);
     const onAddTodo = useCallback(() => {
         if (textRef.current) {
-            addTodo(
+            dispatch(addTodo(
                 textRef.current!.value
-            );
+            ));
             textRef.current.value = "";
         }
     }, []);
@@ -27,9 +31,9 @@ const Todo = () => {
                     <>
                         <div className={styles?.todoItem}>
                             {todo.text}
-                            <button className={[styles?.button, styles?.remove].join(" ")} onClick={() => removeTodo(
+                            <button className={[styles?.button, styles?.remove].join(" ")} onClick={() => dispatch(removeTodo(
                                 todo.id
-                            )}>Remove</button>
+                            ))}>Remove</button>
                         </div>
                     </>)}
                 />
