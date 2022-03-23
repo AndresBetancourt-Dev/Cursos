@@ -37,5 +37,7 @@ function mapFunction<T, K>(items: T[], mapFunc: (item: T) => K): K[] {
 }
 
 console.log(
-  mapFunction([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item) => (item * 10).toString())
+  mapFunction<number, string>([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item) =>
+    (item * 10).toString()
+  )
 );
