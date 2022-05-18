@@ -1,7 +1,8 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
+import TodoApp from "./components/useReducer/TodoApp";
 
-// import "./index.css";
+import "./index.css";
 // /* import App from "./App";
 
 // import UseStateApp from "./components/useState/UseStateApp";
@@ -16,6 +17,5 @@
 // import MemoHook from "./components/useMemo/MemoHook";
 // import CallbackHook from "./components/memo/CallbackHook"; */
 // import { Padre } from "./components/task/Padre";
-// ReactDOM.render(<Padre />, document.getElementById("root"));
+ReactDOM.render(<TodoApp/>, document.getElementById("root"));
 
-import "./components/useReducer/intro-reducer";

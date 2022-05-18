@@ -6,6 +6,12 @@ const initialState = [
   },
 ];
 
+/**
+ * Cannot make asynchronous requests
+ * Fire secondary effects
+ * Resolve with State and Action,
+ * Return new state 
+ */
 const todosReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case "ADD": {
