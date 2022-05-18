@@ -1,0 +1,1 @@
+export const IMAGE_URL = `https://www.thespruce.com/thmb/xLsbfbSc5sbQx4xMgNk7jf09cS0=/2256x1504/filters:fill(auto,1)/how-to-choose-a-sofa-color-4151743-04-b2a07f452fd3476293a75aff7e5ea17c.jpg`;
