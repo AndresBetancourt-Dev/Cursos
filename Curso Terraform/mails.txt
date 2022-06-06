@@ -1,0 +1,5 @@
+pepitoperez+aws-1@dominio.com
+Deployar y Destruir
+
+Terraform from zero to hero
+Terraform en GCP - replicar proyectos de clientes
