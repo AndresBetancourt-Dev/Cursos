@@ -1,0 +1,125 @@
+@mixin navigation {
+    &-list {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+    }
+    
+    &-item {
+        list-style: none;
+    }
+    
+    &-link {
+        color: color(primary);
+        text-decoration: none;
+        font-size: size(sm);
+        transition: all .3s;
+        
+        //Lighten lightens the color specified in the first parameter and the second paramether is the percentage
+        &:hover {
+            color: lighten(color(primary), 40%);
+        }
+    }
+}
+
+/*
+Mixin for avoiding writing so much the flex over used code
+*/
+@mixin flexPosition($justifyContent: center, $alignItems: center) {
+    display: flex;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+}
+
+@mixin footerList {
+    &-heading {
+        font-size: size(lg);
+        color: color(primary);
+    }
+    
+    &-item {
+        list-style: none;
+        margin: 1rem 0;
+    }
+    
+    &-link {
+        font-size: size(xs);
+        text-decoration: none;
+        color: lighten(color(primary), 15%);
+        transition: color .2s;
+        
+        &:hover {
+            color: lighten(color(primary), 35%);
+        }
+    }
+}
+
+/*
+Check the breakpoint parameter and if it's within the values [xl, lg, md, sm]
+it will return a media queria for that value
+xl = 1200
+lg = 1000
+md = 760
+sm = 560
+
+@content is used for rendering the child content or CSS properties
+
+Example
+
+ @include response(sm) {
+    font-size: size(sm);
+    ... this would be the @content
+ }
+
+
+*/
+@mixin response($breakpoint) {
+    @if($breakpoint == xl) {
+        @media(max-width: 1200px) {
+            @content;
+        }
+    }
+    
+    @if($breakpoint == lg) {
+        @media(max-width: 1000px) {
+            @content;
+        }
+    }
+    
+    @if($breakpoint == md) {
+        @media(max-width: 760px) {
+            @content;
+        }
+    }
+    
+    @if($breakpoint == sm) {
+        @media(max-width: 560px) {
+            @content;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
