@@ -1,0 +1,63 @@
+$colors: red green blue orange;
+
+@each $color in $colors {
+    .paragraph-#{$color} {
+        background-color: $color;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

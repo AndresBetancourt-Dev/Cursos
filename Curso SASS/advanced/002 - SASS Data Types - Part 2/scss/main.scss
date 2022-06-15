@@ -1,0 +1,69 @@
+// Numbers
+.numbers {
+    font-weight: 400; //Integer
+    line-height: 1.5; //Decimal
+    font-size: 20px; // rem, em, % Measurement Units
+}
+
+// Strings
+.strings {
+    font-family: 'Helvetica', Arial, sans-serif; //Text values
+    font-weight: bold;
+    font-style: italic;
+}
+
+// Colors
+.colors {
+    color: red;
+    background-color: #ff0000;
+    border-color: rgb(255, 0, 0); // rgba(255, 0, 0, .5)
+    outline-color: hsl(0, 100%, 50%);
+}
+
+// Lists
+.lists {
+    margin: 10px 15px 5px 20px;
+    font-family: 'Raleway', 'Dosis', 'Lato';
+    border: 1px solid red;
+}
+
+// Maps
+$colors: (
+    "primary": red,
+    2: green,
+    3: blue
+);
+
+$colors2: (
+    primary : red,
+    secondary: green,
+    tertiary: blue
+);
+
+h1 {
+    color: map-get($colors, primary);
+    background-color: map-get($colors, 2);
+}
+
+// Booleans
+// true, false
+
+// null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+.numbers {
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 20px; }
+
+.strings {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: bold;
+  font-style: italic; }
+
+.colors {
+  color: red;
+  background-color: #ff0000;
+  border-color: red;
+  outline-color: red; }
+
+.lists {
+  margin: 10px 15px 5px 20px;
+  font-family: 'Raleway', 'Dosis', 'Lato';
+  border: 1px solid red; }
+
+h1 {
+  color: red;
+  background-color: green; }
