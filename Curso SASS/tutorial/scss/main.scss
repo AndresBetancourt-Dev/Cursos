@@ -1,0 +1,109 @@
+/**
+Variables
+*/
+@import "test";
+
+//Colors
+$color-primary: orange;
+$color-secondary: gray;
+$color-tertiary: royalblue;
+$color-white: #f5f5f5;
+
+//Fonts
+$font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-lg: 40px;
+$font-md: 30px;
+$font-sm: 20px;
+
+//Mixins
+
+//Default Parameter, and doesn't need the parenthesis if has only static code
+@mixin headingStyles($fontSize: 50px) {
+    font-size: $fontSize;
+    color: $color-secondary;
+    text-align: center;
+}
+
+//If parameter recieves multiple values use ... spread
+@mixin transition($param...) {
+    transition: $param;
+}
+
+//Extend
+.heading {
+    color: $color-primary;
+    font-size: $font-lg;
+    background-color: $color-secondary;
+    text-align: center;
+}
+
+//Functions
+@function fontSize($size:25px){
+    @return $size * 2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $font;
+    background-color: $color-white;
+}
+
+.nav {
+
+    /*Nesting*/
+    ul {
+        background-color: $color-white;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        color: $color-secondary;
+        text-decoration: none;
+        font-size: $font-sm;
+
+        &:hover {
+            color: $color-tertiary;
+        }
+    }
+}
+
+.banner h1 {
+    /* Local variable, can replace global variable with !global */
+    $color-secondary : #222 !global;
+    @extend .heading;
+}
+
+.footer h3 {
+    @include headingStyles($font-md);
+    @include transition(color .5s, background-color 1s);
+
+    &:hover {
+        color: $color-white;
+        background-color: $color-secondary;
+    }
+}
+
+.banner p{
+    font-size: fontSize($font-sm);
+}
+
+.footer p{
+    font-size: fontSize();
+}
+
+/*
+SASS Functions
+lighten(color,percentage)
+darken(color,percentage)
+transparentize(color,percentage)
+mix(blue,green,percentageFirstColor); percentage
+*/

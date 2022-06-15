@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "watch": "node-sass -o css scss/main.scss -w",
+    "watchtwo": "node-sass -o css scss/main-two.scss -w"
+  },
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
+}
