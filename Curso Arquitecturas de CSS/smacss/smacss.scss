@@ -1,0 +1,55 @@
+/*
+BASE
+*/
+
+h1 {
+    font-size: 32px;
+}
+
+div {
+    margin: 0 auto;
+}
+
+a {
+    color: blue;
+}
+
+/*
+MAQUETACIÓN
+*/
+
+.layout-sidebar {
+    width: 320px;
+}
+
+.l-comments {
+    width: 640px;
+}
+
+/*
+  Módulos
+  */
+
+.call-to-action-button {
+    text-transform: uppercase;
+    color: #FFF200;
+}
+
+.search-form {
+    display: inline-block;
+    background-color: E1E1E1;
+}
+
+/*
+Estados
+*/
+
+.is-hidden {
+    display: none;
+}
+
+.is-highlighted {
+    color: #FF0000;
+    background-color: #F4F0BB;
+    border: 1px solid #CBBD15;
+}

@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "bem" : "npx node-sass .\\bem -o .\\bem",
+    "oocss" : "npx node-sass .\\oocss -o .\\oocss"
+  },
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
+}

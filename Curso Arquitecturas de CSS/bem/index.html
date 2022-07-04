@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEM</title>
+    <link rel="stylesheet" href="bem.css" />
+  </head>
+  <body>
+    <button class="button">Normal button</button>
+    <button class="button button--state-success">Success button</button>
+    <button class="button button--state-danger">Danger button</button>
+    <!-- DO THIS -->
+    <button class="btn btn--secondary">One More</button>
+
+    <style>
+      .btn {
+        display: inline-block;
+        color: blue;
+      }
+      .btn--secondary {
+        color: green;
+      }
+    </style>
+
+    <!-- DO THIS -->
+    <figure class="photo">
+      <img class="photo__img" src="https://images.unsplash.com/photo-1562832135-14a35d25edef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1vb258ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60" />
+      <figcaption class="photo__caption">
+        <blockquote class="photo__quote">Look at me!</blockquote>
+      </figcaption>
+    </figure>
+
+    <style>
+      .photo {
+      }
+      .photo__img {
+      }
+      .photo__caption {
+      }
+      .photo__quote {
+      }
+    </style>
+    <!--Element With Modifier
+In some cases, you may want to vary a single element in a component. In those cases add a modifier to the element instead of the component. I’ve found that modifying elements is much less common and less useful than modifying entire components.-->
+    <figure class="photo">
+      <img class="photo__img photo__img--framed" src="https://images.unsplash.com/photo-1562832135-14a35d25edef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1vb258ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60" />
+      <figcaption class="photo__caption photo__caption--large">
+        Look at me!
+      </figcaption>
+    </figure>
+
+    <style>
+      .photo__img--framed {
+        /* incremental style changes */
+      }
+      .photo__caption--large {
+        /* incremental style changes */
+      }
+    </style>
+    <!--
+Style Elements Based on the Component Modifier
+If you find yourself consistently modifying elements of the same component together in the same way, then consider adding the modifier to the base of the component and adjusting styles for each child element based on that one modifier. This will increase specificity, but it makes modifying your component much simpler.-->
+    <!-- DO THIS -->
+    <figure class="photo photo--highlighted">
+      <img class="photo__img" src="https://images.unsplash.com/photo-1562832135-14a35d25edef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1vb258ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60" />
+      <figcaption class="photo__caption">Look at me!</figcaption>
+    </figure>
+
+    <style>
+      .photo--highlighted .photo__img {
+      }
+      .photo--highlighted .photo__caption {
+      }
+    </style>
+    <!--
+Multi-word Names
+BEM names intentionally use double underscores and double hyphens instead of single to separate Block-Element-Modifier. The reason is so that single hyphens can be used as word separators. Class names should be very readable, so abbreviation isn’t always desirable unless the abbreviations are universally recognizable.-->
+    <!-- DO THIS -->
+    <div class="some-thesis some-thesis--fast-read">
+      <div class="some-thesis__some-element"></div>
+    </div>
+
+    <style>
+      .some-thesis {
+      }
+      .some-thesis--fast-read {
+      }
+      .some-thesis__some-element {
+      }
+    </style>
+  </body>
+</html>

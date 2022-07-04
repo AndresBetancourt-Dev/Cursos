@@ -1,0 +1,77 @@
+#button {
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  border: solid 1px #ccc;
+  background: linear-gradient(#ccc, #aaa);
+  box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
+}
+
+#widget {
+  width: 500px;
+  min-height: 200px;
+  overflow: auto;
+  border: solid 1px #ccc;
+  background: linear-gradient(#ccc, #222);
+  box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
+}
+
+.button {
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+}
+
+.widget {
+  width: 500px;
+  min-height: 200px;
+  overflow: auto;
+}
+
+.skin {
+  border: solid 1px #ccc;
+  background: linear-gradient(#ccc, #aaa);
+  box-shadow: rgba(0, 0, 0, .5) 2px 2px 5px;
+}
+
+header h1 {
+  font-family: 'Roboto', Helvetica, sans-serif;
+  font-size: 2em;
+  color: #F44;
+}
+
+/*mas código css...*/
+footer h1 {
+  font-family: 'Roboto', Helvetica, sans-serif;
+  font-size: 1.5em;
+  color: #F44;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+h1 {
+  font-family: 'Roboto', Helvetica, sans-serif;
+  color: #F44;
+}
+
+/* ... */
+h1,
+.h1-size {
+  font-size: 2em;
+}
+
+h2,
+.h2-size {
+  font-size: 1.8em;
+}
+
+h3,
+.h3-size {
+  font-size: 1.5em;
+}
+
+/* ... */
+.transparente {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
