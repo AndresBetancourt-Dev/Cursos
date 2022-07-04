@@ -17,17 +17,15 @@ async function handler(req, res) {
     }
 
     try {
-      await insertDocument(client,"newsletter", { email });
-      client.close();
+      await insertDocument(client, "newsletter", { email });
+      res.status(201).json({
+        message: "E-mail registered successfully",
+        email,
+      });
     } catch (error) {
       res.status(500).json({ message: "Inserting Failed" });
-      return;
     }
-
-    res.status(201).json({
-      message: "E-mail registered successfully",
-      email,
-    });
+    client.close();
   }
 }
 
