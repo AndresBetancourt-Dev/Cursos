@@ -6,6 +6,7 @@ import ErrorAlert from "../../components/ui/error-alert";
 import Button from "../../components/ui/button";
 import { getEventById, getFeaturedEvents } from "../../helpers/api-util";
 import Head from "next/head";
+import Comments from '../../components/input/comments';
 
 const EventDetailPage = ({ event }) => {
   /*   
@@ -31,9 +32,9 @@ const EventDetailPage = ({ event }) => {
 
   return (
     <Fragment>
-       <Head>
+      <Head>
         <title>Events Application - {event.title}</title>
-        <meta name="description" content={event.description}/>
+        <meta name="description" content={event.description} />
       </Head>
       <EventSummary title={event?.title} />
       <EventLogistics
@@ -45,6 +46,7 @@ const EventDetailPage = ({ event }) => {
       <EventContent>
         <p>{event?.description}</p>
       </EventContent>
+      <Comments eventId={event.id} />
     </Fragment>
   );
 };
@@ -57,7 +59,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: 'blocking'
+    fallback: "blocking",
   };
 }
 
@@ -69,6 +71,6 @@ export async function getStaticProps(context) {
     props: {
       event,
     },
-    revalidate : 30
+    revalidate: 30,
   };
 }

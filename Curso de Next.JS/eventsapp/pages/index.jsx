@@ -2,6 +2,7 @@ import EventList from "../components/events/event-list";
 import { getFeaturedEvents } from "../helpers/api-util";
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
+import NewsletterRegistration from "../components/input/newsletter-registration";
 
 export default function Home({featuredEvents}) {
     /*   
@@ -12,9 +13,13 @@ export default function Home({featuredEvents}) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Events Application - Home</title>
-        <meta name="description" content="Find a lot of great events that allow you to evolve..."/>
+        <title>NextJS Events</title>
+        <meta
+          name="description"
+          content="Find a lot of great events that allow you to evolve..."
+        />
       </Head>
+      <NewsletterRegistration />
       <EventList events={featuredEvents} />
     </div>
   );
