@@ -1,0 +1,1 @@
+export const URL = 'https://nextjs-course-32bdd-default-rtdb.firebaseio.com/events.json';
