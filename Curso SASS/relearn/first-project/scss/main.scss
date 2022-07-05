@@ -1,0 +1,188 @@
+@import "partials/functions";
+@import "partials/variables";
+@import "partials/mixins";
+
+@for $i from 1 through 6 {
+  .col-#{$i} {
+    width: $i * 2em;
+  }
+}
+
+$speakers: bob-banker, patty-plume, sandra-smith;
+@each $speaker in $speakers {
+  .#{$speaker}-profile {
+    background-image: url('/img/#{$speaker}.png');
+  }
+}
+
+$font-sizes: (tiny: 8px, small: 11px, medium: 13px, large: 18px);
+@each $name, $size in $font-sizes {
+  .#{$name} {
+    font-size: $size;
+  }
+}
+
+$j: 8;
+@while $j >= 2 {
+  .picture-#{$j} {
+    width: $j * 10%;
+  }
+  $j: $j - 2;
+}
+
+@include google-font("Alegreya+Sans");
+@include google-font("Titillium+Web");
+
+@include fancy-links;
+
+@include apply-to-ie-6 {
+  body {
+    font-size: 125%;
+  }
+}
+
+.error {
+  color: red;
+}
+
+.critical-error {
+  @extend .error;
+  bottom: 1px solid red;
+  font-weight: bold;
+}
+
+body {
+  font-family: $text-font;
+  font-size: em(18px);
+  color: $text-color;
+  background-color: $body-background-color;
+
+  @include large-screens {
+    font-size: 125%;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: $headline-font;
+}
+
+h2 {
+  @include large-text;
+}
+
+p {
+  font-family: $text-font;
+}
+
+a {
+  color: $link-color;
+
+  @include blue-beans {
+    color: #8779ff;
+  }
+
+  &:hover {
+    color: darken($link-color, 15%);
+  }
+}
+
+%highlight {
+  font-style: italic;
+}
+
+.sub-title {
+  @extend %highlight;
+  @extend .foo !optional;
+  font-size: em(20px);
+}
+
+@mixin warning-button {
+  @include warning;
+  padding: 8px 12px;
+}
+
+.warning-button {
+  @include warning-button;
+}
+
+.cta-button {
+  @include warning-button;
+  @extend .error;
+  @include rounded;
+  font-weight: bold;
+}
+
+.super-cta-button {
+  @extend .cta-button;
+  font-size: em(20px);
+}
+
+#header {
+  @include box($border: 1px solid #fff, $radius: 12px);
+  @include box-shadow(2px 0px 4px #999, 1px 1px 6px $secondary-color);
+  height: $header-height;
+  background-color: $theme-color;
+
+  #main-menu {
+    
+    li {
+      display: inline;
+    }
+
+    a {
+      color: $menu-item-color;
+      padding: 6px 8px;
+      border-bottom: 1px solid transparentize(#fefefe, 1);
+      transition: border-bottom 0.5s;
+      transition-timing-function: ease-in-out;
+
+      &:hover {
+        border-bottom: 1px solid opacify(#fefefe, .5);
+      }
+    }
+  }
+  
+  #logo {
+
+  }
+}
+
+#main {
+  width: $content-width;
+  @include large-screens {
+    width: auto;
+    max-width: $content-width;
+  }
+  margin-left: auto;
+  margin-right: auto;
+
+  #content {
+    float: left;
+    width: 6*$col;
+  }
+
+  #sidebar {
+    float: right;
+    width: 2*$col;
+
+    li {
+      list-style-type: none;
+      padding: em(16px) em(20px);
+      border-bottom: 1px dashed #999;
+
+      &:hover {
+        background-color: #efefef;
+      }
+    }
+  }
+}
+
+#footer {
+  clear: both;
+  height: $footer-height;
+  background-color: $ternary-color;
+
+  @include rogers-rovers {
+    border-top: 5px solid darken($ternary-color, 15%);
+  }
+}
