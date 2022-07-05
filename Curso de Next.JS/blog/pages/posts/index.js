@@ -19,6 +19,10 @@ function AllPostsPage(props) {
   );
 }
 
+/**
+ * Get st
+ * @returns 
+ */
 export function getStaticProps() {
   const allPosts = getAllPosts();
 
