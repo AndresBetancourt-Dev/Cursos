@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #alert{
+            margin-bottom: 20px;
+        }
+
+        .notification{
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: #43A047;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <section id="alert"  role="alert">
+
+    </section>
+    <button id="button">
+        Show Alert
+    </button>
+
+    <template id="notification-template"">
+        <div class="notification">Your account is active</div>
+    </template>
+
+    <script>
+        const button = document.querySelector('#button');
+        const alertNode = document.querySelector('#alert');
+        const template = document.querySelector('#notification-template');
+
+        button.onclick = function(){
+            const clone = template.content.cloneNode(true);
+            clone.querySelector('.notification').textContent = 'You Win!'; 
+            alertNode.appendChild(clone);
+        }
+    </script>
+</body>
+</html>
