@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <style>
+        .dialog {
+            display: none;
+        }
+
+        .dialog.opened {
+            display: block;
+        }
+
+        .dialog-window {
+            display: inline-block;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 2px solid black;
+            padding: calc(1em + 2px);
+            z-index: 101;
+        }
+
+        .dialog-mask{
+            position: fixed;
+            top: 0%;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: #000000;
+            opacity: 0.6;
+            overflow: hidden;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dialog" role="dialog" aria-labelledby="dialog-title">
+        <div class="dialog-window">
+            <div>
+                <h2 id="dialog-title">Dialog Example</h2>
+            </div>
+            <div>
+                <p>Buy our awesome stufff. It's really awesome</p>
+                <button>Close</button>
+                <button>OK</button>
+            </div>
+        </div>
+        <div class="dialog-mask"></div>
+    </div>
+</body>
+
+</html>

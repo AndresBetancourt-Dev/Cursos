@@ -1,0 +1,1 @@
+Custom Elements are a very cool new set of technologies that let developers define their own HTML tags. But when we create new elements, we need to make sure they include all of the same usability and accessibility affordances as the built-in tags. Today we'll be talking about labeling, and how you can make sure your custom elements have a properly computed accessible name.

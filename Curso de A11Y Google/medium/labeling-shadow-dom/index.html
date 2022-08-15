@@ -1,0 +1,39 @@
+<!--
+Copyright 2017 Google Inc. All Rights Reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Labeling Shadow DOM</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 30px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div>
+      <!-- Unfortunately this doesn't work :( -->
+      <label for="without-label">First Name</label>
+      <element-without-label id="without-label"></element-without-label>
+    </div>
+
+    <div>
+      <element-with-label label="Last Name"></element-with-label>
+    </div>
+
+    <div>
+      <element-with-aria-label label="Favorite"></element-with-aria-label>
+    </div>
+
+    <script src="./element-without-label.js"></script>
+    <script src="./element-with-label.js"></script>
+    <script src="./element-with-aria-label.js"></script>
+  </body>
+</html>
