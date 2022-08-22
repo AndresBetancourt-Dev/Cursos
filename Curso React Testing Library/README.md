@@ -23,5 +23,3 @@ render
 Create virtual DOM for argument JSX
 screen
 Access virtual DOM via screen global variables
-
-## 
