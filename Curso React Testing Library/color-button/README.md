@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Expect Method
+Jest global, starts the assertion
+
+## Argument
+Subject of the assertion
+
+## Matcher
+Type of assertion
+this matcher comes from Jest-DOM
