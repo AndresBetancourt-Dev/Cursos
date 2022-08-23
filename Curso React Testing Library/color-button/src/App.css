@@ -1,3 +1,7 @@
+body{
+  background-color: #282c34;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+button{
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  position: relative;
+  color: white;
+  isolation: isolate;
+}
+
+button::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(rgba(0,0,0,0.25), transparent);
+  z-index: -1;
+  top: 0;
+  left: 0;
 }

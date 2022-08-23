@@ -1,73 +1,19 @@
-# Getting Started with Create React App
+# General course plan
+## Start with very simple React
+    - focus on Testing Library Syntax
+## First app: not much of an app
+    - changing button color, disabling button with checkbox
+    - introduce: testing interactions that affect DOM, unit testing functions functions
+## Build up more complex functionality and tests 
+## Second app: design and order and ice cream sundae
+    - testing more complex user interactions, interactions between components
+    - mocking server responses with Mock Service Worker
+    - Testing async functionality
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## A note about React Explanations
+    - folks come to this course at many levels
+    - optional lectures explaining React syntax and decisions
+    - Feel free to skip!
 
 ## Expect Method
 Jest global, starts the assertion
@@ -78,3 +24,30 @@ Subject of the assertion
 ## Matcher
 Type of assertion
 this matcher comes from Jest-DOM
+
+## Mocking CSS Modules
+https://jestjs.io/docs/webpack#mocking-css-modules
+
+Testing styles from imported CSS modules
+Testing Styles from Imported CSS Modules
+A common question about testing styles is "why doesn't .toHaveStyle() work with classes from my imported CSS module?"
+
+Mocking CSS modules
+In the case of create-react-app applications -- or applications that have otherwise mocked css modules for Jest -- CSS module imports are simply ignored for Jest test.
+
+Cosmetic Styles vs. Functional Styles
+In many cases, the classes are merely cosmetic and won't affect functional tests (such as placement of the element on the page). In these cases, mocking the CSS modules works fine. However, sometimes classes do affect function. For example, say you have a CSS module that uses a hidden class, which results in display: none when interpreted. Without adding a Jest transformer to interpret the CSS, Testing Library will not know that hidden class would result in display: none. Tests around element visibility that rely on this class will fail.
+
+Transformers
+For styles to be interpreted in tests, you need a transformer to, well, transform the CSS classes into styles. Here are a couple options:
+
+https://www.npmjs.com/package/jest-transform-css
+
+https://www.npmjs.com/package/jest-css-modules-transform
+
+The latter has more downloads per week, but the former seems to be more actively maintained.
+
+Testing for Class Name
+Another possibility would be to check explicitly for the class name (hidden in this example), using toHaveClass. This would be simpler, but farther from the actual user experience (this is testing implementation details, rather than how the user sees the page). It's always a balance, and I think either this approach or transforming the CSS would be defensible.
+
+Questions? Please ask in the Q&A!

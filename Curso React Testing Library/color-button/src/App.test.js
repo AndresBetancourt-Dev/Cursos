@@ -1,23 +1,101 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen, fireEvent } from '@testing-library/react';
+import App, { replaceCamelCaseWithSpaces } from './App';
 
-test('renders learn react link', () => {
-  const ReactString = 'Learn React';
-  render(<App />);
-  //const linkElement = screen.getByText(/learn react/i);
-  //GetByText Could work either with RegEx or Strings
-  //const linkElement = screen.getByText(ReactString);
-  /** Recommended option for accesibility purposes */
-  const linkElement = screen.getByRole('link',{ name: ReactString });
-  expect(linkElement).toBeInTheDocument();
+const CHANGE_TO_BLUE = 'Change to blue';
+const CHANGE_TO_RED = 'Change to red';
+
+test('button has correct initial color',()=> {
+    render(<App/>);
+
+    //Find an element with a role of button and text 
+    const button = screen.getByRole('button', { name : CHANGE_TO_BLUE});
+    expect(button).toHaveStyle({ backgroundColor: 'red' });
+    expect(button).toHaveStyle('background-color: red');
+    expect(button).toHaveStyle('backgroundColor: red');
+    expect(button).toHaveStyle('backgroundColor: red');
 });
 
-//Roles documentation : https://www.w3.org/TR/wai-aria/#role_definitions
-// - some elements have built-in--roles button.a
-// Can't find and element like a screen reader would ?
-/**
- * Then your app isn't friendly to screen readers
- */
-/**
- * Much more about queries and roles later!
- */
+test('button turns blue when clicked and has changed text', ()=> {
+    render(<App/>);
+
+    //Find an element with a role of button and text 
+    const button = screen.getByRole('button', { name : CHANGE_TO_BLUE });
+    fireEvent.click(button);
+
+    //expect to have color background of blue
+    expect(button.textContent).toBe(CHANGE_TO_RED)
+});
+
+
+test('initial conditions', () =>{
+    render(<App/>);
+
+    //Find an element with a role of button and text 
+    const button = screen.getByRole('button', { name : CHANGE_TO_BLUE });
+    const checkbox = screen.getByRole('checkbox');
+    expect(button).toBeEnabled();
+    expect(checkbox).not.toBeChecked();
+});
+
+test('check uncheck fuctionality', () =>{
+    render(<App/>);
+
+    //Find an element with a role of button and text 
+    const button = screen.getByRole('button', { name : CHANGE_TO_BLUE });
+    const checkbox = screen.getByRole('checkbox', { name : 'Disable button' });
+
+    expect(button).toBeEnabled();
+    expect(checkbox).not.toBeChecked();
+
+    fireEvent.click(checkbox);
+    
+    expect(button).toBeDisabled();
+    expect(checkbox).toBeChecked();
+
+    fireEvent.click(checkbox);
+
+    expect(button).toBeEnabled();
+    expect(checkbox).not.toBeChecked();
+});
+
+test('check disabled color', () =>{
+    render(<App/>);
+
+    //Find an element with a role of button and text 
+    const button = screen.getByRole('button', { name : CHANGE_TO_BLUE });
+    const checkbox = screen.getByRole('checkbox', { name : 'Disable button' });
+    fireEvent.click(checkbox);
+
+    expect(button).toHaveStyle({backgroundColor : 'grey'});
+});
+
+test('check disabled color blue', () =>{
+    render(<App/>);
+
+    //Find an element with a role of button and text 
+    const button = screen.getByRole('button', { name : CHANGE_TO_BLUE });
+    const checkbox = screen.getByRole('checkbox', { name : 'Disable button' });
+    
+    fireEvent.click(button);
+    fireEvent.click(checkbox);
+
+    expect(button).toHaveStyle({backgroundColor : 'grey'});
+
+    fireEvent.click(checkbox);
+
+    expect(button).toHaveStyle({backgroundColor : 'blue'});
+});
+
+describe('spaces before camel-case capital letters',() => {
+    test('works for no inner capital letters', () => {
+        expect(replaceCamelCaseWithSpaces('Red')).toBe('Red');
+    });
+
+    test('works for one inner capital letter', () => {
+        expect(replaceCamelCaseWithSpaces('MidnightBlue')).toBe('Midnight Blue');
+    });
+
+    test('works for multiple inner capital letters', () => {
+        expect(replaceCamelCaseWithSpaces('MediumVioletRed')).toBe('Medium Violet Red');
+    });
+});
