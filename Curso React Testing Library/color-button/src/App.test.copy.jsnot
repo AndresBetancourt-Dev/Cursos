@@ -3,29 +3,27 @@ import App, { replaceCamelCaseWithSpaces } from './App';
 
 const CHANGE_TO_BLUE = 'Change to blue';
 const CHANGE_TO_RED = 'Change to red';
-const CHANGE_TO_MIDNIGHT = 'Change to Midnight Blue';
-const CHANGE_TO_VIOLET = 'Change to Medium Violet Red';
 
 test('button has correct initial color',()=> {
     render(<App/>);
 
     //Find an element with a role of button and text 
-    const button = screen.getByRole('button', { name : CHANGE_TO_MIDNIGHT});
-    expect(button).toHaveStyle({ backgroundColor: 'MediumVioletRed' });
-    expect(button).toHaveStyle('background-color: MediumVioletRed');
-    expect(button).toHaveStyle('backgroundColor: MediumVioletRed');
-    expect(button).toHaveStyle('backgroundColor: MediumVioletRed');
+    const button = screen.getByRole('button', { name : CHANGE_TO_BLUE});
+    expect(button).toHaveStyle({ backgroundColor: 'red' });
+    expect(button).toHaveStyle('background-color: red');
+    expect(button).toHaveStyle('backgroundColor: red');
+    expect(button).toHaveStyle('backgroundColor: red');
 });
 
 test('button turns blue when clicked and has changed text', ()=> {
     render(<App/>);
 
     //Find an element with a role of button and text 
-    const button = screen.getByRole('button', { name : CHANGE_TO_MIDNIGHT });
+    const button = screen.getByRole('button', { name : CHANGE_TO_BLUE });
     fireEvent.click(button);
 
     //expect to have color background of blue
-    expect(button.textContent).toBe(CHANGE_TO_VIOLET)
+    expect(button.textContent).toBe(CHANGE_TO_RED)
 });
 
 
@@ -33,7 +31,7 @@ test('initial conditions', () =>{
     render(<App/>);
 
     //Find an element with a role of button and text 
-    const button = screen.getByRole('button', { name : CHANGE_TO_MIDNIGHT });
+    const button = screen.getByRole('button', { name : CHANGE_TO_BLUE });
     const checkbox = screen.getByRole('checkbox');
     expect(button).toBeEnabled();
     expect(checkbox).not.toBeChecked();
@@ -43,7 +41,7 @@ test('check uncheck fuctionality', () =>{
     render(<App/>);
 
     //Find an element with a role of button and text 
-    const button = screen.getByRole('button', { name : CHANGE_TO_MIDNIGHT });
+    const button = screen.getByRole('button', { name : CHANGE_TO_BLUE });
     const checkbox = screen.getByRole('checkbox', { name : 'Disable button' });
 
     expect(button).toBeEnabled();
@@ -64,7 +62,7 @@ test('check disabled color', () =>{
     render(<App/>);
 
     //Find an element with a role of button and text 
-    const button = screen.getByRole('button', { name : CHANGE_TO_MIDNIGHT });
+    const button = screen.getByRole('button', { name : CHANGE_TO_BLUE });
     const checkbox = screen.getByRole('checkbox', { name : 'Disable button' });
     fireEvent.click(checkbox);
 
@@ -75,7 +73,7 @@ test('check disabled color blue', () =>{
     render(<App/>);
 
     //Find an element with a role of button and text 
-    const button = screen.getByRole('button', { name : CHANGE_TO_MIDNIGHT });
+    const button = screen.getByRole('button', { name : CHANGE_TO_BLUE });
     const checkbox = screen.getByRole('checkbox', { name : 'Disable button' });
     
     fireEvent.click(button);
@@ -85,7 +83,7 @@ test('check disabled color blue', () =>{
 
     fireEvent.click(checkbox);
 
-    expect(button).toHaveStyle({backgroundColor : 'MidnightBlue'});
+    expect(button).toHaveStyle({backgroundColor : 'blue'});
 });
 
 describe('spaces before camel-case capital letters',() => {
