@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import App, { replaceCamelCaseWithSpaces } from './App';
+import App, { replaceCamelCaseWithSpaces } from './App'
 
 const CHANGE_TO_BLUE = 'Change to blue';
 const CHANGE_TO_RED = 'Change to red';
@@ -25,7 +25,7 @@ test('button turns blue when clicked and has changed text', ()=> {
     fireEvent.click(button);
 
     //expect to have color background of blue
-    expect(button.textContent).toBe(CHANGE_TO_VIOLET)
+    expect(button.textContent).toHaveTextContent(CHANGE_TO_VIOLET)
 });
 
 
