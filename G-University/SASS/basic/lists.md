@@ -1,0 +1,13 @@
+# Listas
+
+Las listas son el tipo de dato que utiliza Sass para representar los valores que normalmente se utilizan en las propiedades CSS como margin: 10px 15px 0 0 o font-face: Helvetica, Arial, sans-serif. Las listas son simplemente una colección de valores separados por comas o espacios en blanco. Técnicamente, cada elemento de la lista también se considera una lista simple de un solo elemento.
+
+Por si solas las listas no sirven para mucho, pero gracias a las funciones para listas definidas por SassScript que se explican en los siguientes capítulos, puedes conseguir resultados muy avanzados. La función nth() por ejemplo permite acceder al enésimo elemento de una lista, la función join() puede concatenar todos los valores y la función append() puede fusionar varias listas en una sola. Por último, la directiva @each permite aplicar estilos a cada elemento de una lista.
+
+Además de contener valores simples, las listas pueden contener en su interior otras listas. Así por ejemplo, la lista 1px 2px, 5px 6px es una lista de dos elementos, que a su vez son las listas 1px 2px y 5px 6px. Si las listas interiores utilizan el mismo carácter para separar sus elementos que la lista principal, puedes añadir paréntesis para indicar claramente cuáles son los elementos de las listas anidadas. Así por ejemplo, la lista (1px 2px) (5px 6px) también es una lista de dos elementos cuyos valores son a su vez dos listas con los valores 1px 2px y 5px 6px.
+
+Cuando se genera el archivo CSS, Sass no mantiene los paréntesis de las listas porque CSS no es capaz de entenderlos. Así que los valores (1px 2px) (5px 6px) y 1px 2px 5px 6px de Sass generan el mismo código cuando se compilan a CSS. No obstante, en Sass estos dos valores son diferentes: el primero es una lista que tiene dos listas en su interior y el segundo es una lista de cuatro números.
+
+Las listas también pueden estar vacías y no contener ningún elemento. Estas listas vacías se representan mediante () y no se pueden incluir directamente en el archivo CSS compilado. Así que si defines una regla como font-family: (), Sass mostrará un mensaje de error. Si una lista contiene valores vacíos o nulos, como por ejemplo 1px 2px () 3px o 1px 2px null 3px, estos valores se eliminan antes de convertir la lista a código CSS.
+
+Las listas separadas por comas pueden incluir una coma después del último elemento. Esto es muy útil por ejemplo para crear listas de un solo elemento. Así por ejemplo (1,) es una lista que contiene el elemento 1, mientras que (1 2 3,) es una lista separada por comas cuyo primer elemento es a su vez una lista separada por espacios en blanco y que contiene los elementos 1, 2 y 3.

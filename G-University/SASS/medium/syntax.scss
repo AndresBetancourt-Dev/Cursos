@@ -1,0 +1,44 @@
+/* Listas */
+//(1px 2px) (5px 6px)
+//1px 2px null 3px
+
+/* Funciones de Lists */
+//nth(lista,indice)
+//length() - first - last
+
+/* Condicionales */
+
+@if (mixin-exists($name: hello)) {
+  .hello {
+    font-size: $font-size-xxl;
+  }
+}
+
+/* Bucles - Estructuras de Control */
+@each $var in list {
+}
+
+@while condition {
+}
+
+@for $var from start to end {
+}
+
+/* Placeholder */
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+%flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}

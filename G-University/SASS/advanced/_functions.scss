@@ -1,0 +1,27 @@
+light-generation{
+
+}
+
+div{
+    /* Integrated color functions */
+    color: darken(black,20%);
+    color: darken($color: #000000, $amount: 0);
+    color: lighten($color: #000000, $amount: 0);
+    color: mix($color: #000000, $color: #ffffff, $weight: 0.5);
+}
+
+$green: #090;
+
+.element{
+    background: linear-gradient(
+        $green,
+        darken($green, 20%)
+    )
+}
+
+.element:hover{
+    background: linear-gradient(
+        $green,
+        lighten($green, 20%)
+    )
+}

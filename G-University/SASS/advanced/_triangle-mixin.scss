@@ -1,0 +1,25 @@
+@mixin flecha($color, $tamanio, $dir) {
+  border-style: sold;
+  width: 0;
+  height: 0;
+  @if $dir == "der" {
+    border-width: $tamanio 0 $tamanio $tamanio;
+    border-color: transparent transparent transparent $color;
+  }
+  @if $dir == "izq" {
+    border-width: $tamanio $tamanio $tamanio 0;
+    border-color: transparent $color transparent transparent;
+  }
+  @if $dir == "arriba" {
+    border-width: 0 $tamanio $tamanio $tamanio;
+    border-color: transparent transparent $color transparent;
+  }
+  @if $dir == "abajo" {
+    border-width: $tamanio $tamanio 0 $tamanio;
+    border-color: $color transparent transparent transparent;
+  }
+}
+
+.izq {
+  @include flecha(red, 50px, "izq");
+}

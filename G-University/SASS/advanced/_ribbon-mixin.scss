@@ -1,0 +1,39 @@
+@mixin ribbon($color) {
+  background-color: $color;
+  display: block;
+  margin: 50px;
+  width: 30px;
+  position: relative;
+  color: #fff;
+  padding: 20px 0 10px;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+  &::before {
+    display: block;
+    width: 30px;
+    height: 0;
+    position: absolute;
+    top: 4px;
+    content: "";
+    border-top: 1px dotted rgba(0, 0, 0, 0.2);
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+  }
+  &::after {
+    display: block;
+    width: 0;
+    height: 0;
+    content: "";
+    position: relative;
+    bottom: -25px;
+    z-index: 100;
+    border-width: 0 15px 15px 15px;
+    border-style: solid;
+    border-color: $color $color transparent $color;
+  }
+}
+
+.verde {
+  @include ribbon(green);
+}

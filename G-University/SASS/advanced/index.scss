@@ -1,0 +1,17 @@
+@import "mixins";
+@import "partials";
+
+nav ul {
+  @include horizontal-list;
+}
+.sidebar {
+  @include rtl(float, left, right);
+}
+
+.mail-icon {
+  @include replace-text(url("/images/mail.svg"), 0);
+}
+
+.avatar {
+  @include square(100px, $radius: 4px);
+}

@@ -1,0 +1,68 @@
+// SASS vs SASSY (SCSS)
+
+/**
+* .sass - uses tabulations
+* .scss - uses normal css (anchors and semicolons)
+/
+
+/* Variables */
+// Start with a `$` sign
+
+//Colors
+$background-color: black;
+$font-color: white;
+
+//Fonts
+$font-size-xl: 2em;
+$font-size-xxl: 3em;
+$font-size-sm: 0.75em;
+$font-size-normal: 1em;
+$font-size-large: 1.5em;
+
+//Medias
+$media-xl: 1200px;
+$media-lg: 968px;
+$media-md: 768px;
+$media-sm: 500px;
+
+/* Operadores */
+/**
+*  + - Suma
+*  - - Resta
+*  * _ Multiplicación
+*  / - División
+*/
+
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Nesting */
+// Limit to maximum 3 levels
+// & <- parent selector, states, pseudo-elements
+
+.header {
+  @extend %flex-center;
+  height: 10vh;
+  background-color: $background-color;
+
+  .header-item {
+    display: inherit;
+    padding: 1em 2em;
+  }
+
+  /* Media Queries */
+  @media screen and (min-width: $media-xl) {
+  }
+
+  @media screen and (min-width: $media-lg) {
+  }
+
+  @media screen and (min-width: $media-md) {
+  }
+
+  @media screen and (min-width: $media-sm) {
+  }
+}
