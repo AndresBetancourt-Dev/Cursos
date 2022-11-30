@@ -1,14 +1,14 @@
 # Curso Templates JS
 
-<template/>: The Content Template element
-The <template/> HTML element is a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
+<template>: The Content Template element
+The <template> HTML element is a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
 
-Think of a template as a content fragment that is being stored for subsequent use in the document. While the parser does process the contents of the <template/> element while loading the page, it does so only to ensure that those contents are valid; the element's contents are not rendered, however.
+Think of a template as a content fragment that is being stored for subsequent use in the document. While the parser does process the contents of the <template> element while loading the page, it does so only to ensure that those contents are valid; the element's contents are not rendered, however.
 
 Content categories Metadata content, flow content, phrasing content, script-supporting element
 Permitted content No restrictions
 Tag omission None, both the starting and ending tag are mandatory.
-Permitted parents Any element that accepts metadata content, phrasing content, or script-supporting elements. Also allowed as a child of a <colgroup/> element that does not have a span attribute.
+Permitted parents Any element that accepts metadata content, phrasing content, or script-supporting elements. Also allowed as a child of a <colgroup> element that does not have a span attribute.
 Implicit ARIA role No corresponding role
 Permitted ARIA roles No role permitted
 DOM interface HTMLTemplateElement
