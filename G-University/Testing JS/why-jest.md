@@ -1,6 +1,6 @@
 # Why Jest ?
 
-Zero Config
+Zero Config - requires only installation
 Snapshots
 Isolated
 Great API
