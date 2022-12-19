@@ -15,8 +15,7 @@ Y, a partir de ECMAScript 2015, los módulos son parte nativa del lenguaje y tod
 
 En la tabla siguiente se resumen y se comparan los módulos y los espacios de nombres.
 
-`módulo`
-
+`módulo` vs `namespace`
 Use módulos para organizar el código en archivos independientes para la agrupación lógica de la funcionalidad.
 Use espacios de nombres para organizar el código en archivos independientes para la agrupación lógica de la funcionalidad.
 

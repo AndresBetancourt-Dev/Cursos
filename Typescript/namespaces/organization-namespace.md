@@ -10,3 +10,11 @@ Para informar a TypeScript de la relación entre interfaces.ts y functions.ts, a
 <img src="https://learn.microsoft.com/es-mx/training/modules/typescript-namespaces-organize-code/media/multi-file-namespaces.png">
 
 uando haya una referencia a más de un archivo, empiece con el espacio de nombres de nivel más alto y luego trabaje hacia abajo. TypeScript usará este orden al compilar los archivos.
+
+Compilación de espacios de nombres de varios archivos
+Hay dos maneras de compilar varios espacios de nombres de archivo: compilación por archivo y compilación de un solo archivo.
+
+De forma predeterminada, al ejecutar el compilador de TypeScript en main.ts, examinará las instrucciones reference del archivo y generará un archivo JavaScript para cada archivo de entrada. Si elige esta opción, use etiquetas <script> en la página web para cargar cada archivo emitido en el orden adecuado.
+
+También puede indicar al compilador que genere un solo archivo de salida de JavaScript mediante la opción --outFile. En el ejemplo anterior, el comando `tsc --outFile main.js main.ts` indica al compilador que genere un único archivo de JavaScript denominado main.js.
+
