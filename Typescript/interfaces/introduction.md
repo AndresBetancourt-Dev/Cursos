@@ -50,3 +50,16 @@ Puede usar una interfaz para:
 - Controlar la coherencia en un conjunto de objetos porque cada objeto que implementa la interfaz funciona bajo las mismas definiciones de tipo. Esto puede resultar útil si trabaja con un equipo de desarrolladores y quiere asegurarse de que se pasan valores correctos a las propiedades, los constructores o las funciones. Por ejemplo, los objetos que implementan una interfaz deben implementar todos los miembros necesarios de esta. Por lo tanto, si no pasa todos los parámetros necesarios del tipo correcto, el compilador de TypeScript generará un error.
 
 - Describir las API de JavaScript existentes, y aclarar los parámetros de función y los tipos de valor devueltos. Esto es especialmente útil cuando se trabaja con bibliotecas de JavaScript como jQuery. Una interfaz puede proporcionarle una idea clara de lo que espera una función y lo que devolverá, sin necesidad de consultar repetidamente la documentación.
+
+## ¿En qué se diferencia una interfaz de un alias de tipo?
+La interfaz Employee anterior también se puede expresar como un alias de tipo mediante la palabra clave type:
+```ts
+type Employee = {
+    firstName: string;
+    lastName: string;
+    fullName(): string;
+}
+```
+
+Un alias de tipo es una definición de un tipo de datos, por ejemplo, unión, primitivo, intersección, tupla o cualquier otro tipo. Por otro lado, las interfaces son una manera de describir formas de datos, por ejemplo, un objeto. Los alias de tipos pueden actuar como interfaces, pero hay algunas diferencias sutiles. La principal diferencia es que un alias de tipos no se puede volver a abrir para agregar nuevas propiedades, mientras que una interfaz siempre es extensible. Además, solo se puede describir una unión o tupla mediante un alias de tipos.
+
