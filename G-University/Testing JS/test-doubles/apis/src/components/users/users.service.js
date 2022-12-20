@@ -5,6 +5,9 @@ class UserService {
   }
 
   async createUser(userData) {
+    if (userData === null || Object.keys(userData).length === 0 ) {
+      throw new Error("You need to provide the user data.");
+    }
     this.users.push(userData);
   }
 

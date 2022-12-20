@@ -1,4 +1,10 @@
 const UserService = require("./users.service");
+const jwt = require("jsonwebtoken");
+
+const verifyToken = (token) => {
+  const decoded = jwt.verify(token, "secret-key");
+  return decoded;
+};
 
 class UserController {
   constructor() {
@@ -7,12 +13,14 @@ class UserController {
   }
 
   async createUser(req, res) {
+    const token = req.headers.accessToken;
+    verifyToken(token);
     const user = req.body;
     try {
-      await this.userService.createUser();
-      res.status(203).send({});
+      await this.userService.createUser(user);
+      return res.status(203).send({});
     } catch (error) {
-      res.status(500).send(error);
+      return res.status(500).send(error);
     }
   }
 

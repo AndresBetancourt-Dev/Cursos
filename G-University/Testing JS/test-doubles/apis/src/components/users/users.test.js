@@ -3,10 +3,15 @@ const UserService = require("../users/users.service");
 const { getMockReq, getMockRes } = require("@jest-mock/express");
 
 jest.mock("../users/users.service");
+jest.mock("jsonwebtoken", () => ({
+  verify: jest.fn((token, secretOrPublicKey, options, callback) => {
+    return { sub: "Test" };
+  }),
+}));
 
 describe("User Component", () => {
   beforeEach(() => {
-    UserService.mockClear()
+    UserService.mockClear();
   });
 
   it("Should check if userService constructor and methods have been called", async () => {
@@ -16,20 +21,27 @@ describe("User Component", () => {
     expect(UserService).toHaveBeenCalledTimes(1);
 
     const mockUserData = {
-      "firstName": "Andres",
-      "lastName": "Betancourt",
-      "email": "test@demo.com",
+      firstName: "Andres",
+      lastName: "Betancourt",
+      email: "test@demo.com",
     };
 
-    const mockRequest = getMockReq({ body: mockUserData });
+    const mockRequest = getMockReq({
+      body: mockUserData,
+      headers: {
+        accessToken: "Test",
+      },
+    });
 
     const { res: mockResponse } = getMockRes();
 
     await userController.createUser(mockRequest, mockResponse);
 
     const mockUserServiceInstance = UserService.mock.instances[0];
-    
-    //expect(mockUserServiceInstance.createUser).toHaveBeenCalledWith(mockUserData);
+
+    expect(mockUserServiceInstance.createUser).toHaveBeenCalledWith(
+      mockUserData
+    );
     expect(mockUserServiceInstance.createUser).toHaveBeenCalledTimes(1);
   });
 });
