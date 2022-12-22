@@ -1,9 +1,17 @@
 import React, { useState } from "react";
+/**
+ * As said early i can use node.js code with NextJS
+ * this functions uses path and fs that are node.js libraries
+ */
 import { buildFeedbackPath, extractFeedback } from "../api/feedback";
 
 const FeedbackPage = ({ feedbacks = [] }) => {
   const [feedbackData, setFeedbackData] = useState();
 
+  /**
+   * Function to call a specific feedback page
+   * /api/:feedbackId
+   */
   function loadFeedbackHandler(id) {
     fetch(`/api/${id}`)
       .then((response) => response.json())
@@ -41,6 +49,11 @@ export async function getStaticProps() {
   const feedbacks = extractFeedback(filePath);
 
   console.log(feedbacks);
+
+  /**
+   * Get feedbacks from node.js function calls
+   * revalidate them each 10 seconds (clears cached Static Site Generation)
+   */
 
   return {
     props: {

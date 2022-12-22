@@ -2,17 +2,28 @@ import styles from "../styles/Home.module.css";
 import { useRef, useState } from "react";
 
 export default function Home() {
+  /**
+   * Ref for inputs
+   * ref.current.value
+   */
   const emailInputRef = useRef();
   const feedbackInputRef = useRef();
 
   const [feedbacks, setFeedbacks] = useState([]);
 
+  /**
+   * Client side fetching for refetching feedbacks
+   * this does not static generate in the rendered DOM
+   */
   const loadFeedback = () => {
     fetch("/api/feedback")
       .then((response) => response.json())
       .then((res) => setFeedbacks(res.data));
   };
 
+  /**
+   * Function for submiting the form with the feedback
+   */
   const submitFormHandler = (event) => {
     event.preventDefault();
 
@@ -21,6 +32,10 @@ export default function Home() {
 
     const body = { email, feedback };
 
+    /**
+     * Fetch in the same endpoint of /api/feedbacks
+     * to create a new feedback
+     */
     fetch("/api/feedback", {
       method: "POST",
       body: JSON.stringify(body),
@@ -31,9 +46,15 @@ export default function Home() {
       .then((response) => response.json())
       .then((res) => console.log(res));
 
+    /**
+     * Reload feedbacks
+     */
     loadFeedback();
   };
 
+  /**
+   * JSX with form, title, and list of feedbacks
+   */
   return (
     <div className={styles.container}>
       <h1>The Home Page</h1>
