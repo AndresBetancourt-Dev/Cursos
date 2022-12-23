@@ -4,10 +4,16 @@ import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
+import confetti from "https://cdn.skypack.dev/canvas-confetti";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  useEffect(() => {
+    confetti();
+  }, []);
+
   return (
     <>
       <Head>
