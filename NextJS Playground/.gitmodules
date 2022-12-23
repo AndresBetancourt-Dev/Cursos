@@ -1,7 +1,7 @@
-[submodule "libfoo"]
+[submodule "examples"]
 	path = examples
 	url = https://github.com/vercel/examples.git
 
-[submodule "libbar"]
+[submodule "next-server-components"]
 	path = next-server-components
 	url = https://github.com/vercel/next-server-components.git
