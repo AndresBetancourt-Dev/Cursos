@@ -1,0 +1,52 @@
+{
+  "name": "job-board-client",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently \"react-scripts start\" \"graphql-codegen --config codegen.json --watch\"",
+    "build": "react-scripts build",
+    "codegen": "graphql-codegen --config codegen.json"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.12",
+    "bulma": "^0.9.4",
+    "graphql": "^16.6.0",
+    "jwt-decode": "^3.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.10.0",
+    "react-router-dom": "^6.10.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "3.3.1",
+    "@graphql-codegen/client-preset": "3.0.1",
+    "@types/node": "^18.16.1",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.1",
+    "concurrently": "^8.0.1",
+    "react-scripts": "5.0.1",
+    "typescript": "^5.0.4"
+  },
+  "overrides": {
+    "react-scripts": {
+      "typescript": "^5"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  }
+}
